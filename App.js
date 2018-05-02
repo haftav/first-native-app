@@ -4,9 +4,12 @@ import { StyleSheet, Text, View } from 'react-native';
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
+      <View style={{ flex: 1 }}>
         <View style={styles.header}></View>
-        <Text style={styles.text}>I love react native</Text>
+        <View style={styles.container}>
+          <Text style={styles.text}>I love react native</Text>
+        </View>
+        <View style={styles.menubar}></View>
       </View>
     );
   }
@@ -14,20 +17,20 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   header: {
-    height: 50,
-    width: '100%',
-    backgroundColor: 'white',
-    position: 'absolute',
-    top: 0,
-    left: 0
+    flex: 1,
+    backgroundColor: 'red'
   },
   container: {
-    flex: 1,
+    flex: 7,
     backgroundColor: 'lightblue',
     alignItems: 'center'
   },
   text: {
     color: 'white',
-    marginTop: 60
+    fontSize: 30
+  },
+  menubar: {
+  flex: 1,
+  backgroundColor: 'green'
   }
 });
