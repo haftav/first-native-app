@@ -1,15 +1,33 @@
 import React from 'react';
+import MapView from 'react-native-maps';
 import { StyleSheet, Text, View } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <View style={styles.header}></View>
-        <View style={styles.container}>
-          <Text style={styles.text}>I love react native</Text>
+        <MapView style={styles.container}
+          initialRegion={{
+            latitude: 37.78825,
+            longitude: -122.4324,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}
+        />
+
+        <View style={styles.menubar}>
+          <View style={styles.menuItem}>
+            <Icon name="cog" size={30} color="white" />
+          </View>
+          <View style={styles.menuItem}>
+            <Icon name="globe" size={45} color="white" />
+          </View>
+          <View style={styles.menuItem}>
+            <Icon name="user-circle" size={30} color="white" />
+          </View>
         </View>
-        <View style={styles.menubar}></View>
+
       </View>
     );
   }
@@ -18,19 +36,29 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   header: {
     flex: 1,
-    backgroundColor: 'red'
+    backgroundColor: 'gray'
   },
   container: {
     flex: 7,
-    backgroundColor: 'lightblue',
+    backgroundColor: 'white',
     alignItems: 'center'
   },
   text: {
-    color: 'white',
+    color: 'black',
     fontSize: 30
   },
   menubar: {
-  flex: 1,
-  backgroundColor: 'green'
+    flex: 1,
+    backgroundColor: 'navy',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around'
+  },
+  menuItem: {
+    backgroundColor: '#0097A7',
+    flex: 1,
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
